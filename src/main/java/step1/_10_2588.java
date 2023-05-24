@@ -26,7 +26,7 @@ public class _10_2588 {
 
     public static int pow(int a, int b) {
         int result = 1;
-        if ( b != 0 ) {
+        if (b != 0) {
             for (int i = 0; i < b; i++) {
                 result = result * a;
             }

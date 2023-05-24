@@ -1,10 +1,11 @@
+// https://www.acmicpc.net/problem/10172
 package step1;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 
-public class _13_10171 {
+public class _13_10172 {
     public static void main(String[] args) throws IOException {
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         bw.write("|\\_/|\n");
