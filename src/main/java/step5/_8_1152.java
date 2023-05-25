@@ -1,20 +1,16 @@
-// https://www.acmicpc.net/problem/11720
+// https://www.acmicpc.net/problem/1152
 package step5;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.StringTokenizer;
 
-public class _5_11720 {
+public class _8_1152 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int strLength = Integer.parseInt(br.readLine());
         String str = br.readLine();
-
-        int sum = 0;
-        for (int i = 0; i < strLength; i++) {
-            sum += str.charAt(i) - 48;
-        }
-        System.out.print(sum);
+        StringTokenizer st = new StringTokenizer(str);
+        System.out.print(st.countTokens());
     }
 }
