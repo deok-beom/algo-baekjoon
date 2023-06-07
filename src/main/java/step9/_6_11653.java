@@ -8,10 +8,10 @@ public class _6_11653 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int N = Integer.parseInt(br.readLine());
 
-        int[] primes = new int[N + 2];
-        for (int i = 2; i < primes.length; i++) {
+        int[] primes = new int[N + 1];
+        for (int i = 2; i <= Math.sqrt(N); i++) {
             if (primes[i] == 0) {
-                for (int j = i * 2; j < primes.length; j = j * 2) {
+                for (int j = i * i; j < primes.length; j += i) {
                     primes[j] = 1;
                 }
             }

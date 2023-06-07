@@ -15,10 +15,15 @@ public class _1929 {
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         for (int i = 2; i <= Math.sqrt(N); i++) {
             if (!isComposite[i]) {
-                if (i >= M) bw.write(String.format("%d%s", i, System.lineSeparator()));
                 for (int j = i * i; j < isComposite.length; j += i) {
                     isComposite[j] = true;
                 }
+            }
+        }
+
+        for (int i = Math.max(2, M); i < isComposite.length; i++) {
+            if (!isComposite[i]) {
+                bw.write(String.format("%d%s", i, System.lineSeparator()));
             }
         }
 
