@@ -1,3 +1,4 @@
+// https://www.acmicpc.net/problem/2587
 package step13;
 
 import java.io.BufferedReader;
