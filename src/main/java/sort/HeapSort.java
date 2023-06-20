@@ -1,13 +1,13 @@
 package sort;
 
-public class _4_MaxHeapSort {
+public class HeapSort {
 
-    public static class MaxHeap {
+    public static class Heap {
         int size;
         int maxSize;
         int[] heap;
 
-        public MaxHeap(int maxSize) {
+        public Heap(int maxSize) {
             this.size = 0;
             this.maxSize = maxSize;
             this.heap = new int[maxSize];
@@ -37,7 +37,7 @@ public class _4_MaxHeapSort {
             }
 
             int poppedNum = heap[0];
-            swap(0, size - 1);
+            swap(0, --size);
             sort(0);
             return poppedNum;
         }
@@ -47,15 +47,18 @@ public class _4_MaxHeapSort {
                 return;
             }
 
-            if (index * 2 + 1 >= size) {
+            int left = index * 2 + 1;
+            int right = index * 2 + 2;
+
+            if (left >= size) {
                 return;
-            } else if (index * 2 + 2 >= size) {
-                index = swap(index, index * 2 + 2);
+            } else if (right >= size) {
+                index = swap(index, left);
             } else {
-                if (heap[index * 2 + 1] > heap[index * 2 + 2]) {
-                    index = swap(index, index * 2 + 1);
+                if (heap[left] > heap[right]) {
+                    index = swap(index, left);
                 } else {
-                    index = swap(index, index * 2 + 2);
+                    index = swap(index, right);
                 }
             }
 
@@ -68,30 +71,16 @@ public class _4_MaxHeapSort {
             heap[b] = temp;
             return b;
         }
-
-        public void print() {
-            for (int i = 0; i < size / 2; i++) {
-                System.out.print("Parent: " + heap[i] + ", Left Child: " + heap[2 * i + 1]
-                        + ", Right Child: " + heap[2 * i + 2]);
-                System.out.println();
-            }
-        }
     }
 
-    public static void main(String[] args) {
-        MaxHeap maxHeap = new MaxHeap(15);
-        maxHeap.insert(5);
-        maxHeap.insert(3);
-        maxHeap.insert(17);
-        maxHeap.insert(10);
-        maxHeap.insert(84);
-        maxHeap.insert(19);
-        maxHeap.insert(6);
-        maxHeap.insert(22);
-        maxHeap.insert(9);
+    public static void sort(int[] arr) {
+        Heap heap = new Heap(arr.length);
+        for (int num : arr) {
+            heap.insert(num);
+        }
 
-        maxHeap.print();
-        System.out.printf("Popped: %d%s", maxHeap.extract(), System.lineSeparator());
-        maxHeap.print();
+        for (int i = arr.length - 1; i >= 0; --i) {
+            arr[i] = heap.extract();
+        }
     }
 }
