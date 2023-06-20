@@ -9,17 +9,15 @@ public class QuickSort {
 
         int pivot = arr[high];
         int cursor = low - 1;
-        for (int i = low; i <= high; i++) {
+        for (int i = low; i < high; i++) {
             if (arr[i] < pivot) {
                 swap(arr, ++cursor, i);
             }
         }
 
-        pivot = ++cursor;
-        swap(arr, cursor, high);
-
-        sort(arr, low, pivot - 1);
-        sort(arr, pivot + 1, high);
+        swap(arr, ++cursor, high);
+        sort(arr, low, cursor - 1);
+        sort(arr, cursor + 1, high);
     }
 
     private static void swap(int[] arr, int a, int b) {
